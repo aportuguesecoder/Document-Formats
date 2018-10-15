@@ -197,7 +197,7 @@
 \ProcessOptions
 
 \def\doi#1{\def\@doi{#1}}
-\doi{http://dx.doi.org/10.1145/0000000.0000000}
+%\doi{http://dx.doi.org/10.1145/0000000.0000000}
 
 \let\@concepts\@empty
 
@@ -1577,12 +1577,12 @@
 % ISBN
 %
 \def\isbn#1{\global\acmcopyr={#1}}
-\isbn{978-1-4503-2138-9}
+%\isbn{978-1-4503-2138-9}
 
 \RequirePackage{url}
 \urlstyle{rm}
 \def\doi#1{\def\@doi{#1}}
-\doi{10.1145/1235}
+%\doi{10.1145/1235}
 \def\printdoi#1{\url{#1}}
 
 
@@ -1590,40 +1590,40 @@
 % Copyright
 \RequirePackage{acmcopyright}
 \setcopyright{none}
-
 %
-\global\boilerplate={\@copyrightpermission}
+%%
+%\global\boilerplate={\@copyrightpermission}
+%%
+%\newtoks\copyrightetc
+%\ifnum\ACM@basesize=9\relax
+%\global\copyrightetc{%
+%{\noindent\confname\ \the\conf } \the\confinfo \par\smallskip
+%  \if@printcopyright
+%    \copyright\ \the\copyrtyr\ \@copyrightowner
+%  \fi
+%  \if@acmowned ISBN \else\ifnum\acm@copyrightmode=2 ISBN \else \par\smallskip ACM ISBN \fi\fi
+% \the\acmcopyr\ifx\@acmPrice\@empty.\else\dots\@acmPrice\fi\par\smallskip
+%{DOI: \small\expandafter\printdoi\expandafter{\@doi}}} 
+%\toappear{\fontsize{7pt}{8pt}\fontfamily{ptm}\selectfont
+%  \the\boilerplate\par\smallskip
+% \the\copyrightetc}
+%\fi
+%\ifnum\ACM@basesize=10\relax
+%\global\copyrightetc{%
+%{\noindent\confname\ \the\conf\ \the\confinfo}\par\smallskip
+%  \if@printcopyright
+%    \copyright\ \the\copyrtyr\ \@copyrightowner
+%  \fi
+%  \if@acmowned ISBN \else\ifnum\acm@copyrightmode=2 ISBN \else \par\smallskip ACM ISBN \fi\fi
+% \the\acmcopyr\ifx\@acmPrice\@empty.\else\dots\@acmPrice\fi\par\smallskip
+%{DOI: \small\expandafter\printdoi\expandafter{\@doi}}} 
+%\toappear{\fontsize{7.5pt}{8.5pt}\fontfamily{ptm}\selectfont
+%  \the\boilerplate\par\smallskip
+% \the\copyrightetc}
+%\fi
 %
-\newtoks\copyrightetc
-\ifnum\ACM@basesize=9\relax
-\global\copyrightetc{%
-{\noindent\confname\ \the\conf } \the\confinfo \par\smallskip
-  \if@printcopyright
-    \copyright\ \the\copyrtyr\ \@copyrightowner
-  \fi
-  \if@acmowned ISBN \else\ifnum\acm@copyrightmode=2 ISBN \else \par\smallskip ACM ISBN \fi\fi
- \the\acmcopyr\ifx\@acmPrice\@empty.\else\dots\@acmPrice\fi\par\smallskip
-{DOI: \small\expandafter\printdoi\expandafter{\@doi}}} 
-\toappear{\fontsize{7pt}{8pt}\fontfamily{ptm}\selectfont
-  \the\boilerplate\par\smallskip
- \the\copyrightetc}
-\fi
-\ifnum\ACM@basesize=10\relax
-\global\copyrightetc{%
-{\noindent\confname\ \the\conf\ \the\confinfo}\par\smallskip
-  \if@printcopyright
-    \copyright\ \the\copyrtyr\ \@copyrightowner
-  \fi
-  \if@acmowned ISBN \else\ifnum\acm@copyrightmode=2 ISBN \else \par\smallskip ACM ISBN \fi\fi
- \the\acmcopyr\ifx\@acmPrice\@empty.\else\dots\@acmPrice\fi\par\smallskip
-{DOI: \small\expandafter\printdoi\expandafter{\@doi}}} 
-\toappear{\fontsize{7.5pt}{8.5pt}\fontfamily{ptm}\selectfont
-  \the\boilerplate\par\smallskip
- \the\copyrightetc}
-\fi
-
-\clubpenalty=10000 
-\widowpenalty = 10000
+%\clubpenalty=10000 
+%\widowpenalty = 10000
 
 %% 
 % For the CCSXML 2012 Categories

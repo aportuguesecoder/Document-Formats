@@ -5,22 +5,22 @@
 % copyright statement.
 
 % Copyright
-\CopyrightYear{2016}
+%\CopyrightYear{2018}
 %\setcopyright{acmcopyright}
-\setcopyright{acmlicensed}
+%\setcopyright{acmlicensed}
 %\setcopyright{rightsretained}
 %\setcopyright{usgov}
 %\setcopyright{usgovmixed}
 %\setcopyright{cagov}
 %\setcopyright{cagovmixed}
 % DOI
-\doi{http://dx.doi.org/10.475/123_4}
+%\doi{http://dx.doi.org/10.475/123_4}
 % ISBN
-\isbn{123-4567-24-567/08/06}
+%\isbn{123-4567-24-567/08/06}
 %Conference
-\conferenceinfo{CHI'16,}{May 07--12, 2016, San Jose, CA, USA}
+%\conferenceinfo{CHI'16,}{May 07--12, 2016, San Jose, CA, USA}
 %Price
-\acmPrice{\$15.00}
+%\acmPrice{\$15.00}
 
 % Use this command to override the default ACM copyright statement
 % (e.g. for preprints).  Consult the conference website for the
@@ -76,12 +76,10 @@
 % Paper metadata (use plain text, for PDF inclusion and later
 % re-using, if desired).  Use \emtpyauthor when submitting for review
 % so you remain anonymous.
-\def\plaintitle{SIGCHI Conference Proceedings Format}
-\def\plainauthor{First Author, Second Author, Third Author,
-  Fourth Author, Fifth Author, Sixth Author}
+\def\plaintitle{OutTest}
+\def\plainauthor{Armando João da Silva Gomes}
 \def\emptyauthor{}
-\def\plainkeywords{Authors' choice; of terms; separated; by
-  semicolons; include commas, within terms only; required.}
+\def\plainkeywords{OutSystems; software testing; automated testing; automated test generation; low-code.}
 \def\plaingeneralterms{Documentation, Standardization}
 
 % llt: Define a global style for URLs, rather that the default one
@@ -111,8 +109,8 @@
 \hypersetup{%
   pdftitle={\plaintitle},
 % Use \plainauthor for final version.
-%  pdfauthor={\plainauthor},
-  pdfauthor={\emptyauthor},
+  pdfauthor={\plainauthor},
+%  pdfauthor={\emptyauthor},
   pdfkeywords={\plainkeywords},
   pdfdisplaydoctitle=true, % For Accessibility
   bookmarksnumbered,
@@ -128,441 +126,328 @@
 
 % create a shortcut to typeset table headings
 % \newcommand\tabhead[1]{\small\textbf{#1}}
-
 % End of preamble. Here it comes the document.
+\setcopyright{none}
 \begin{document}
 
 \title{\plaintitle}
 
-\numberofauthors{3}
+\numberofauthors{1}
 \author{%
-  \alignauthor{Leave Authors Anonymous\\
-    \affaddr{for Submission}\\
-    \affaddr{City, Country}\\
-    \email{e-mail address}}\\
-  \alignauthor{Leave Authors Anonymous\\
-    \affaddr{for Submission}\\
-    \affaddr{City, Country}\\
-    \email{e-mail address}}\\
-  \alignauthor{Leave Authors Anonymous\\
-    \affaddr{for Submission}\\
-    \affaddr{City, Country}\\
-    \email{e-mail address}}\\
+  \alignauthor{Armando João da Silva Gomes\\
+    \affaddr{Instituto Superior Técnico}\\
+    \affaddr{Lisboa, Portugal}\\
+    \email{armando.gomes@tecnico.ulisboa.pt}}\\
 }
 
 \maketitle
 
 \begin{abstract}
-  UPDATED---\today. This sample paper describes the formatting
-  requirements for SIGCHI conference proceedings, and offers
-  recommendations on writing for the worldwide SIGCHI
-  readership. Please review this document even if you have submitted
-  to SIGCHI conferences before, as some format details have changed
-  relative to previous years. Abstracts should be about 150 words and
-  are required.
+The rapid growth of the IT market needs and the increasing complexity of software projects led to a talent shortage. Companies in need of resources tend to hire either junior developers or people with no background in software development as well as choosing low-code platforms for development. The lack of skills - although softened due to the features of low-code platforms - lead to defective development, defective quality assurance process and, in the end, a defective software system. One of the methods to improve the quality assurance process is through automated software testing. The current offerings for the OutSystems platform lack the required functionality and/or require additional developments that represent a significant overhead to project planning in terms of schedule and budget. In this work, a framework for automated test case generation in the OutSystems platform is proposed. This framework targets the Core Business layer in OutSystems proposed 4-Layer Canvas.
 \end{abstract}
 
-\category{H.5.m.}{Information Interfaces and Presentation
-  (e.g. HCI)}{Miscellaneous} \category{See
-  \url{http://acm.org/about/class/1998/} for the full list of ACM
-  classifiers. This section is required.}{}{}
+\category{D.2.5}{Software Engineering}{Testing and Debugging}
 
 \keywords{\plainkeywords}
 
 \section{Introduction}
 
-This format is to be used for submissions that are published in the
-conference proceedings. We wish to give this volume a consistent,
-high-quality appearance. We therefore ask that authors follow some
-simple guidelines. You should format your paper exactly like this
-document. The easiest way to do this is to replace the content with
-your own material.  This document describes how to prepare your
-submissions using \LaTeX.
+Building software is an expensive and demanding task. When companies cannot find exactly what they are looking for - usually, a commercial off-the-shelf solution -, they have no alternative than to build it from scratch. Whether companies tend to build it themselves or hire another company to do so (outsourcing), is a decision that might depend on the organizational maturity, application domain and in-house knowledge, flexibility, time constraints, value and overall productivity\cite{buildbuyoutsource}. Additionally, when building in-house software, companies tend to fall into the \textit{sunk cost effect}, in which decision-makers are heavily influenced by the investment already made\cite{effectsofsunk:keil}. In order to reduce costs and increase the productivity, companies tend to embrace low-code platforms and their bold promises of delivering software multiple times faster. This introductory chapter will identify some of the factors that influence the software cost and quality and how low-code platforms give response to current software development needs.
 
-\section{Page Size and Columns}
-On each page your material should fit within a rectangle of 7 $\times$
-9.15 inches (18 $\times$ 23.2 cm), centered on a US Letter page (8.5
-$\times$ 11 inches), beginning 0.85 inches (1.9 cm) from the top of
-the page, with a 0.3 inches (0.85 cm) space between two 3.35 inches
-(8.4 cm) columns. Right margins should be justified, not
-ragged. Please be sure your document and PDF are US letter and not A4.
+So, why is the software development process so expensive? There are various reasons for that. The single biggest reason is the development team. According to Glassdoor, the average software engineer in Portugal costs around 25.000 to 30.000 EUR per year. If a company needs 10 people to develop a single project, just the development team costs can go over 250.000 or even 300.000 EUR, depending on the member profiles. Other factors include the complexity, the required time-to-market, the required expertise and so on. Finally, one additional factor that influence the cost is the failure rate. 
+The Standish Group produces an yearly report with the state of the IT projects, with the first report published in 1994\cite{CHAOS1994}. This report already had very interesting mentions regarding IT application development: in the United States, the average number of projects per year was 175.000, leading to a total cost of over 250 billion USD. The impressive information comes next: of those 175.000 projects, around 31.1\% of them were canceled before being concluded and 52.7\% ended up costing more than 189\% of their original estimates. In terms of successes, only 16.2\% of the projects were being completed on-time and on-budget. The costs associated with building custom software don't end once the software is built - applications usually require constant evolution and maintenance, which also helps in increasing overall costs.
+But which factors influence the software cost?
 
-\section{Typeset Text}
-The styles contained in this document have been modified from the
-default styles to reflect ACM formatting conventions. For example,
-content paragraphs like this one are formatted using the Normal style.
+Two of those factors are software complexity and the current skill shortage. Determining the complexity in a software system may be considered a subjective term. A study by McNicholl and Magel in 1982\cite{McNicholl:1982:SNP:800049.801785} has shown that the perception of the complexity of software varies from individual to individual, that it may be influenced by the size of the result than the expended effort and, finally, that doesn't seem to be any measurable individual characteristic that could allow the prediction of  previous statements.
+In an article by Robert Glass titled "Sorting out software complexity"\cite{Glass:2002:SOS:581571.581584}, the author has conducted a research and has reached two interesting findings: \textit{for each 25\% increase in the problem complexity, there is a 100\% increase in the complexity of the software solution} and that \textit{explicit requirements explode by a factor of 50 or more into implicit (design) requirements as a software solution proceeds}.
 
-\LaTeX\ sometimes will create overfull lines that extend into columns.
-To attempt to combat this, the \texttt{.cls} file has a command,
-\texttt{{\textbackslash}sloppy}, that essentially asks \LaTeX\ to
-prefer underfull lines with extra whitespace.  For more details on
-this, and info on how to control it more finely, check out
-{\url{http://www.economics.utoronto.ca/osborne/latex/PMAKEUP.HTM}}.
+\subsection{Low-code platforms}
+The low-code market is on the rise and its worth is estimated to grow from 3.2 billion USD in 2016 to approximately 27.23 billion USD in 2022, a compound annual growth rate of almost 45\%. In terms of valuation, the latest round of funding for OutSystems has introduced the company into the "unicorn list" - a list containing companies valued at more than one billion USD.
 
-\subsection{Title and Authors}
+The term low-code is a new term for a concept that has been around for long. The notion of "power user" or "citizen developer", people who can optimize their workflow by themselves,  inside companies is wildly known, with these platforms aiming at reducing the entry barrier for the average employee\cite{12436424020170801}. Usually, platforms that focus only on the average employee are called no-code platforms, in which no coding is required and the all the available features are already present in it. On the other hand, the pure low-code platforms target traditional developers and IT people.
+A low-code platform allows a developer to build an application - usually web and/or mobile - faster due to the nature of the already available components. Additionally, if any specific requirement is needed, these platforms allow the developer to extend the platform with the given functionality - hence the difference between low-code and no-code. 
 
-Your paper's title, authors and affiliations should run across the
-full width of the page in a single column 17.8 cm (7 in.) wide.  The
-title should be in Helvetica or Arial 18-point bold.  Authors' names
-should be in Times New Roman or Times Roman 12-point bold, and
-affiliations in 12-point regular.  
+\subsection{Popularity of low-code platforms}
+According to Forrester, a research and advisory firm, there are three key factors that highlight the real value of these platforms\cite{forresterwavelowcodeq4}:
+\begin{itemize}
+	\item \textbf{Speed up application and innovation delivery} Based on Forrester July 2017 survey, 31 of 41 Application Development and Delivery (AD\&D) leaders stated that traditional coding meant huge difficulties to meet business requirements on time while 21 of 41 also stated that the lack of flexibility was a challenge and, finally, 20 of 41 AD\&D leaders stated that traditional coding means a long time to update existing applications. Related to the delivery speed on the low-code platforms, 40 out of 41 AD\&D leaders stated that they have seen a notable or significant improvement while only one (1) AD\&D leader stated that only a marginal improvement was seen. This data shows that low-code platforms allow teams to dramatically raise their productivity and ability to response in time to demands for business software.
+	\item \textbf{Prove useful for large-scale applications} One common misconception about the low-code platforms is that are only good for \textit{departmental} (code for small, non-critical) applications. Many of the adopters of these platforms have built and use these applications corporate-wide or in multiple departments.
+	\item \textbf{Contribute to Application Development and Delivery move to public clouds} According to recent studies\cite{forresterpubliccloudmarket}, the adoption of public cloud services - either from full applications (i.e. Atlassian's JIRA) to infrastructure services (i.e. Amazon Web Services) - has been and is expected to keep growing, hitting a 23.6 billion USD valuation in 2020. Since these low-code platforms have publicly accessible clouds for development and delivery, they have emerged as a one of three major Platform-as-a-Service options.
+\end{itemize}
+Still related to speeding up the application delivery, low-code automation allows users to create and deploy high-quality web and mobile applications significantly faster – typically in weeks rather than months. According to OutSystems, gains in productivity can achieve up to 600\% - or six times faster.
 
-See \texttt{{\textbackslash}author} section of this template for
-instructions on how to format the authors. For more than three
-authors, you may have to place some address information in a footnote,
-or in a named section at the end of your paper. Names may optionally
-be placed in a single centered row instead of at the top of each
-column. Leave one 10-point line of white space below the last line of
-affiliations.
+Enabling IT departments to meet the growing demand for the rollout of new applications is only one of the benefits of low-code platforms since these platforms also streamline application maintenance and updates. This is critical, given today’s rapidly changing business needs. If the low-code platform is robust, it can also integrate readily with existing IT infrastructure meaning that migration and legacy enterprise systems are much less of a concern. In addition, users of these platforms can manage integration for easy access and replication, resulting in ongoing efficiency. An article written by Jon Idle\cite{benefitsoflowcode} explains the rational of when and why use low-code platforms. According to the article, low-code platforms need to be considered when there's the need to build or manage multiple applications for a business in a quick manner, with proper life cycle management and/or for multiple platforms. Besides the tangible results of developing in these platforms, there is also a greater stakeholder engagement and satisfaction - since they can iterate and see progress more frequently -, a lower risk and higher return on investment as well as, to certain extent, an elimination of the IT skills gap.
 
-\subsection{Abstract and Keywords}
+\subsection{Motivation}
+According to the World Quality Report 2017-18\cite{wqr1718}, in 2017 companies allocated 26\% of their total IT budget to quality assurance (QA) processes. This value, despite being considerable, means a five percent decrease (31\%) from 2016 and a nine percent decrease (35\%) from 2015. In terms of the overall cost, building software has an immediate and a future cost. While the former depends mainly on the duration, scope and resources, the latter depends not only on the same but it also depends on the effectiveness of the QA process.
+The cost of software testing has a visible face: people will often take the biggest share of the budget but sometimes there's the need to license the bug tracking platform - like JIRA, for instance - or even some tools for testing - for instance, UI testing, load testing and others.
+But what about the "hidden costs" of the software testing? An article published in 2002\cite{718084420020805} concluded that bugs or errors had an annual cost of 59.5 billion USD. Another interesting fact is that almost 38\% of that cost (22.5 billion USD) could be likely removed if the testing infrastructures would be improved. These costs represent if the errors would be found near to development stages - the sooner, the better - but, unfortunately, most of the errors were found late in the process.
+Related to when is an error found and the relative cost, Steve McConnel has detailed the subject in his book \textit{Code Complete}\cite{McConnell:2004:CCS:1096143}. It is stated that an issue introduced in the requirements and design phase could cost from 1 to 100 orders of magnitude while an error introduced in the development phase can cost from 1 to 25 orders of magnitude. It is safe to conclude that QA process plays a vital role in terms of a project or a company's budget since it can save much more than it costs.
 
-Every submission should begin with an abstract of about 150 words,
-followed by a set of Author Keywords and ACM Classification
-Keywords. The abstract and keywords should be placed in the left
-column of the first page under the left half of the title. The
-abstract should be a concise statement of the problem, approach, and
-conclusions of the work described. It should clearly state the paper's
-contribution to the field of HCI\@.
+\subsection{Problem}
+Due to the nature of low-code platforms, project managers look into their usage so they can reduce costs in two different vectors: development time is cut and, due to a lower learning curve, less skilled developers can be hired. Although it is expected that applications built with low-code platforms contain less bugs, they are not bug-free and, as a result, it is required to have a proper QA process in place. Despite providing huge benefits in terms of application development \textit{per se}, they lack "low-code" testing capabilities: developers still need to manually implement their own unit tests. How can be assured that, due to the lack of proper QA skills of developers, the designed test suite is appropriate and the software is released with the desired quality? 
+\subsection{Objectives}
+Considering the current talent shortage along with developers without the required skill set in order to assure the effectiveness of the QA process, the objective of this work is to produce a framework able to automatically generate and execute test suites for a given application built with the OutSystems platform. The main requirements for this framework are:
+\begin{itemize}
+    \item Allow the developer to import and select the module under test.
+    \item Generate full test suites for all the methods/actions present in a given module.
+    \item Allow the developer to run the mentioned test suites, either on demand or in a given schedule.
+    \item Provide execution reports for scheduled tests.
+\end{itemize}
+Additionally, it is important that this framework has a set of additional requirements in terms of performance, usability and size. These requirements are:
+\begin{itemize}
+    \item The framework should provide an User Interface that is easy to use and that allows an easy understanding of the current state of the system, following Nielsen's Heuristics\cite{Nielsen:1994:EEP:191666.191729}.
+    \item The framework should provide reasonable performance in terms of test execution, meaning that the productivity flow of a developer should not be affected by a given test execution - either on demand or
+    scheduled.
+    \item The framework should provide real-time results for a given test case/suite execution.
+    \item The framework should be as small as possible in terms of OutSystems licensing, aiming for a reasonable 50 Application Objects in size\footnote{Application Objects are elements of the application and are used as a measure for licensing purposes.}.
+\end{itemize}
+\subsubsection{Why OutSystems?}
+There are several reasons for choosing the OutSystems platform, with the most relevant being the daily development tool of the author. Additionally, the OutSystems platform is a world-renowned portuguese company that, in October 2018, has over 245 partners and more than 167.000 community members, being present in 52 countries and 22 different industries. In the low-code platform ecosystem, OutSystems is a founder and also considered a leader with a strong platform and big ambitions. The platform has received multiple awards, including the top rated low-code platform by TrustRadius and four times the CODiE award by SIIA: three for the best mobile application development platform and one for best could platform as a service. There are some features that highlight the advantages that the OutSystems Platform provides and make it a serious contender when a low-code or no-code platform is considered: rapid productivity, multi-channel development, reduced costs and no lock-in approach.
 
-\subsection{Normal or Body Text}
+\textbf{Despite several attempts, the work presented was not supported by OutSystems, limiting the end result to some extent. There were, however, some resources provided in order to streamline some of the progress.}
 
-Please use a 10-point Times New Roman or Times Roman font or, if this
-is unavailable, another proportional font with serifs, as close as
-possible in appearance to Times Roman 10-point. Other than Helvetica
-or Arial headings, please use sans-serif or non-proportional fonts
-only for special purposes, such as source code text.
+\section{OutSystems Platform}
+The OutSystems platform is a low-code solution for the complete application development life cycle. OutSystems achieves this by allowing developers and teams to respond to critical business requests for demanding market needs. A development team can design, develop, assure quality and analyze and manage an application, independently of the size of it. As such, the platform provides a front to end development solution while also allowing deployment and maintenance needs. In the end, the goal of the OutSystems platform is to provide reduced risks and costs associated to software development by implementing a continuous delivery approach.
 
-\subsection{First Page Copyright Notice}
-This template include a sample ACM copyright notice at the bottom of
-page 1, column 1.  Upon acceptance, you will be provided with the
-appropriate copyright statement and unique DOI string for publication.
-Accepted papers will be distributed in the conference
-publications. They will also be placed in the ACM Digital Library,
-where they will remain accessible to thousands of researchers and
-practitioners worldwide. See
-\url{http://acm.org/publications/policies/copyright_policy} for the
-ACM's copyright and permissions policy.
-
-\subsection{Subsequent Pages}
-
-On pages beyond the first, start at the top of the page and continue
-in double-column format.  The two columns on the last page should be
-of equal length.
-
-\begin{figure}
-\centering
-  \includegraphics[width=0.9\columnwidth]{figures/sigchi-logo}
-  \caption{Insert a caption below each figure. Do not alter the
-    Caption style.  One-line captions should be centered; multi-line
-    should be justified. }~\label{fig:figure1}
+\subsection{Product overview}	
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\columnwidth]{outsystems-architecture}
+	\caption{OutSystems platform high-level architecture}
 \end{figure}
-
-\subsection{References and Citations}
-
-Use a numbered list of references at the end of the article, ordered
-alphabetically by last name of first author, and referenced by numbers
-in
-brackets~\cite{acm_categories,ethics,Klemmer:2002:WSC:503376.503378}.
-Your references should be published materials accessible to the
-public. Internal technical reports may be cited only if they are
-easily accessible (i.e., you provide the address for obtaining the
-report within your citation) and may be obtained by any reader for a
-nominal fee. Proprietary information may not be cited. Private
-communications should be acknowledged in the main text, not referenced
-(e.g., ``[Borriello, personal communication]'').
-
-References should be in ACM citation format:
-\url{http://acm.org/publications/submissions/latex_style}. This
-includes citations to internet
-resources~\cite{acm_categories,cavender:writing,CHINOSAUR:venue,psy:gangnam}
-according to ACM format, although it is often appropriate to include
-URLs directly in the text, as above.
-
-
-% Use a numbered list of references at the end of the article, ordered
-% alphabetically by first author, and referenced by numbers in
-% brackets~\cite{ethics, Klemmer:2002:WSC:503376.503378,
-%   Mather:2000:MUT, Zellweger:2001:FAO:504216.504224}. For papers from
-% conference proceedings, include the title of the paper and an
-% abbreviated name of the conference (e.g., for Interact 2003
-% proceedings, use \textit{Proc. Interact 2003}). Do not include the
-% location of the conference or the exact date; do include the page
-% numbers if available. See the examples of citations at the end of this
-% document. Within this template file, use the \texttt{References} style
-% for the text of your citation.
-
-% Your references should be published materials accessible to the
-% public.  Internal technical reports may be cited only if they are
-% easily accessible (i.e., you provide the address for obtaining the
-% report within your citation) and may be obtained by any reader for a
-% nominal fee.  Proprietary information may not be cited. Private
-% communications should be acknowledged in the main text, not referenced
-% (e.g., ``[Robertson, personal communication]'').
-
-\begin{table}
-  \centering
-  \begin{tabular}{l r r r}
-    % \toprule
-    & & \multicolumn{2}{c}{\small{\textbf{Test Conditions}}} \\
-    \cmidrule(r){3-4}
-    {\small\textit{Name}}
-    & {\small \textit{First}}
-      & {\small \textit{Second}}
-    & {\small \textit{Final}} \\
-    \midrule
-    Marsden & 223.0 & 44 & 432,321 \\
-    Nass & 22.2 & 16 & 234,333 \\
-    Borriello & 22.9 & 11 & 93,123 \\
-    Karat & 34.9 & 2200 & 103,322 \\
-    % \bottomrule
-  \end{tabular}
-  \caption{Table captions should be placed below the table. We
-    recommend table lines be 1 point, 25\% black. Minimize use of
-    table grid lines.}~\label{tab:table1}
-\end{table}
-
-\section{Sections}
-
-The heading of a section should be in Helvetica or Arial 9-point bold,
-all in capitals. Sections should \textit{not} be numbered.
-
-\subsection{Subsections}
-
-Headings of subsections should be in Helvetica or Arial 9-point bold
-with initial letters capitalized.  For sub-sections and
-sub-subsections, a word like \emph{the} or \emph{of} is not
-capitalized unless it is the first word of the heading.
-
-\subsubsection{Sub-subsections}
-
-Headings for sub-subsections should be in Helvetica or Arial 9-point
-italic with initial letters capitalized.  Standard
-\texttt{{\textbackslash}section}, \texttt{{\textbackslash}subsection},
-and \texttt{{\textbackslash}subsubsection} commands will work fine in
-this template.
-
-\section{Figures/Captions}
-
-Place figures and tables at the top or bottom of the appropriate
-column or columns, on the same page as the relevant text (see
-Figure~\ref{fig:figure1}). A figure or table may extend across both
-columns to a maximum width of 17.78 cm (7 in.).
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=1.75\columnwidth]{figures/map}
-  \caption{In this image, the map maximizes use of space. You can make
-    figures as wide as you need, up to a maximum of the full width of
-    both columns. Note that \LaTeX\ tends to render large figures on a
-    dedicated page. Image: \ccbynd~ayman on
-    Flickr.}~\label{fig:figure2}
-\end{figure*}
-
-Captions should be Times New Roman or Times Roman 9-point bold.  They
-should be numbered (e.g., ``Table~\ref{tab:table1}'' or
-``Figure~\ref{fig:figure1}''), centered and placed beneath the figure
-or table.  Please note that the words ``Figure'' and ``Table'' should
-be spelled out (e.g., ``Figure'' rather than ``Fig.'') wherever they
-occur. Figures, like Figure~\ref{fig:figure2}, may span columns and
-all figures should also include alt text for improved accessibility.
-Papers and notes may use color figures, which are included in the page
-limit; the figures must be usable when printed in black-and-white in
-the proceedings.
-
-The paper may be accompanied by a short video figure up to five
-minutes in length. However, the paper should stand on its own without
-the video figure, as the video may not be available to everyone who
-reads the paper.  
-
-\subsection{Inserting Images}
-When possible, include a vector formatted graphic (i.e. PDF or EPS).
-When including bitmaps,  use an image editing tool to resize the image
-at the appropriate printing resolution (usually 300 dpi).
-
-\section{Quotations}
-Quotations may be italicized when \textit{``placed inline''} (Anab,
-23F).
-
-\begin{quote}
-Longer quotes, when placed in their own paragraph, need not be
-italicized or in quotation marks when indented (Ramon, 39M).  
-\end{quote}
-
-\section{Language, Style, and Content}
-
-The written and spoken language of SIGCHI is English. Spelling and
-punctuation may use any dialect of English (e.g., British, Canadian,
-US, etc.) provided this is done consis- tently. Hyphenation is
-optional. To ensure suitability for an international audience, please
-pay attention to the following:
+		
+Internally, the OutSystems platform provides environments, tools and components that streamline software development, covering all life cycle steps. In terms of the environments, the two most important are:
 
 \begin{itemize}
-\item Write in a straightforward style.
-\item Try to avoid long or complex sentence structures.
-\item Briefly define or explain all technical terms that may be
-  unfamiliar to readers.
-\item Explain all acronyms the first time they are used in your
-  text---e.g., ``Digital Signal Processing (DSP)''.
-\item Explain local references (e.g., not everyone knows all city
-  names in a particular country).
-\item Explain ``insider'' comments. Ensure that your whole audience
-  understands any reference whose meaning you do not describe (e.g.,
-  do not assume that everyone has used a Macintosh or a particular
-  application).
-\item Explain colloquial language and puns. Understanding phrases like
-  ``red herring'' may require a local knowledge of English.  Humor and
-  irony are difficult to translate.
-\item Use unambiguous forms for culturally localized concepts, such as
-  times, dates, currencies, and numbers (e.g., ``1--5--97'' or
-  ``5/1/97'' may mean 5 January or 1 May, and ``seven o'clock'' may
-  mean 7:00 am or 19:00). For currencies, indicate equivalences:
-  ``Participants were paid {\fontfamily{txr}\selectfont \textwon}
-  25,000, or roughly US \$22.''
-\item Be careful with the use of gender-specific pronouns (he, she)
-  and other gendered words (chairman, manpower, man-months). Use
-  inclusive language that is gender-neutral (e.g., she or he, they,
-  s/he, chair, staff, staff-hours, person-years). See the
-  \textit{Guidelines for Bias-Free Writing} for further advice and
-  examples regarding gender and other personal
-  attributes~\cite{Schwartz:1995:GBF}. Be particularly aware of
-  considerations around writing about people with disabilities.
-\item If possible, use the full (extended) alphabetic character set
-  for names of persons, institutions, and places (e.g.,
-  Gr{\o}nb{\ae}k, Lafreni\'ere, S\'anchez, Nguy{\~{\^{e}}}n,
-  Universit{\"a}t, Wei{\ss}enbach, Z{\"u}llighoven, \r{A}rhus, etc.).
-  These characters are already included in most versions and variants
-  of Times, Helvetica, and Arial fonts.
+    \item \textbf{Visual development environment - Service Studio} Service Studio is the IDE used to create all parts of the application stack: database structure, application logic, user interfaces, business processes, external integrations and security policies.
+    \item \textbf{Integration environment - Integration Studio} Integration Studio is an environment used for component creation that extend the platform, i.e., external databases, specific snippets of code and third-party systems.
+\end{itemize}		
+ 
+The developments done within these two environments will reside in a third environment, the platform server. The OutSystems platform Server is the server component and the core of the platform. This server does the process of generation and optimization of code as well as the compilation and deployment of it. Besides this, it is also responsible for batch jobs as well as application logs.
+
+\begin{figure}[h!]
+    \centering
+	\includegraphics[width=0.9\columnwidth]{platform-server}
+    \caption {The various components of the platform server in the overall OutSystems platform architecture}
+    \label{fig:platformserver}
+\end{figure}
+
+When the development is finished and the application is ready for the next step of the life cycle, there are two additional resources that aid in the team: \textbf{Service Center}, which is a management console for the operational aspects of the environment - i.e. connection strings, web service endpoints - and \textbf{LifeTime}, which is a console for centralized management for development, quality assurance and production environments.
+
+In terms of the development task, the visual development environment (Service Studio) allows developers to drag and drop elements to create the UI as well as business logic and data structures. Adding to this ease of use, Service Studio has a full reference-checking and self-healing engine that prevents errors in the applications when changes are made.  Although there is a reasonable set of available elements that developers can use, if these elements are not sufficient to achieve the desired result, they can go on and extend the platform with their own code.
+
+The continuous delivery approach is, in simple terms, achieved by the click of a button: 1-click publish. When this functionality is used, the development environment allows the developer to manually or automatically merge his changes into the published version, replacing the current code and making it available right away. When the merge is complete - if necessary -, various services are invoked:
+
+\begin{itemize}
+    \item \textbf{Code Generator} The code generator service converts the OutSystems modeling language modeled in the development environment and generates the native .NET (or Java) code. The reason for this is that generated applications are optimized for performance and security by executing on top of standard environments.
+    \item \textbf{Deployment Service} Once the code generator finishes its job, the deployment services deploy the generated code into a standard web application server. This standard server is, usually, either Microsoft Internet Information Services or RedHat's JBoss. This service, during the deployment procedure, ensures that the application is consistently installed across all servers.
+    \item \textbf{Application Services} During the whole process of generating, deploying and executing the application, the application services provide and manage the execution of batch jobs and logging features for the platform/applications. These logging features could go from simple audit messages to errors or performance indicators.
+\end{itemize}
+Along with this process of generating and compiling the application, an application model is created and is stored in the same platform server, using a built-in version control system and a dependency analysis is made. In the event that another application might be affected by the changes being applied, the system notifies the team accordingly.
+
+\subsection{Architectural principles}
+OutSystems uses a pattern called 4-Layer Canvas (4LC) which helps the architect to design a Service-Oriented Architecture in a simple manner to attain simple goals: it suggests - and encourages - the abstraction of services and the correct isolation of distinct functional modules in order to promote module reusing.
+
+\subsubsection{The layers}
+As the name of the architecture pattern suggests, there are four different layers, each with its own purpose. From bottom to top:
+\begin{itemize}
+    \item The \textbf{Library Layer} contains business-agnostic services to extend the framework/functionality with highly reusable assets, UI Patterns, connectors to external platforms and systems and, additionally, integration of native code (C\# in case of the web component, Objective-C/Swift and Java for the mobile part).
+    \item The \textbf{Core Layer} aims to provide the isolation of business modules, exposing reusable entities, business rules and business widgets.
+    \item The \textbf{End User Layer} provides user interfaces and processes (BPM processes or, in OutSystems terminology, Business Process Technology processes), reusing the modules from the Library and Core layers in order to implement the user stories.
+    \item Finally, the \textbf{Orchestration Layer} contains processes, dashboard and home pages in order to provide a unique and unified user experience.
 \end{itemize}
 
-\section{Accessibility}
-The Executive Council of SIGCHI has committed to making SIGCHI
-conferences more inclusive for researchers, practitioners, and
-educators with disabilities. As a part of this goal, the all authors
-are asked to work on improving the accessibility of their
-submissions. Specifically, we encourage authors to carry out the
-following five steps:
+\subsection{Core Layer}
+The Core Layer, Core Business Layer or even Core Services layer is the most important layer in an OutSystems application architecture. The decisions made during the design and, most important, the coding that is done during the development phase, hugely influence not only the outcome of the project but other factors like scalability, reusability and performance. 
+
+A typical module in this layer will be composed of entities - which is an element that allows information to be persisted in the database - and server actions, which can do CRUD operations  or any other business logic, like calculating a currency exchange rate or a loan interest rate.
+
+This Core Layer is the central part of this work. The testing framework that was produced aims to allow the unit testing of these server actions without requiring any further developments. As of now, in order to test these actions it needs to happen one of two things: "wait" until the user interface is implemented so the logic can be tested - typifying as integration testing instead of unit testing - or implement a test case using regular development practices.
+
+\subsection{Domain-Specific Languages (DSL)}
+Martin Fowler defines a DSL as "\textit{a computer programming language of limited expressiveness focused on a particular domain}"\cite{Fowler:2010:DSL:1809745}. Moreover, he identifies four key elements to this definition:
+\begin{itemize}
+    \item \textbf{Computer programming language} A DSL is used by humans to define instructions, therefore being a language easily understandable for humans but executable by a computer.
+    \item \textbf{Language nature} A DSL should have a sense of fluency where the meaning comes not only from the individual elements but also from the way they are connected.
+    \item \textbf{Limited expressiveness} A DSL should support only the minimum required of features to support its domain.
+    \item \textbf{Domain focus} A DSL should be focused on a small domain, potentiating its worthfulness - this being as a consequence of the limited expressiveness.
+\end{itemize}
+
+Beyond the definition, he also defines three main categories in which DSL may fit: external DSL, internal DSL and language workbench.
+
+The \textbf{external DSL} is defined as a separate language from the main language of the application it works with. It has its own language and it's parsed by a code on the host application. The \textbf{internal DSL} is a particular way of using a general-purpose language, in which only a subset of the language's features are used and, finally, a \textbf{language workbench} is an Integrated Development Environment for defining and building DSLs.
+
+The OutSystems Modeling Language is an \textbf{external DSL} since it uses a separate language from the application it works with (HTML/C\# for the generated code) and uses a parser\footnote{The inner working of this parser is unknown since it's intellectual property of OutSystems and was not disclosed.} that generates the final code. This parser is also able to generate XML files - which are used in this work.
+
+\section{Related Work}
+As of October 2018, there is no solution that allows the automated test suite generation for User Actions in the OutSystems platform. There are, however, other existing solutions aimed at providing testing capabilities in the platform. But how to test actions in the OutSystems platform?
+
+\subsection{Method scope testing}
+The method scope testing is a deeper level of the class scope testing since here the parts that interoperate are statements. In other words, a method scope testing focuses on testing the relationship among statements. When testing classes, the common procedure is to send messages to one method at a time. Due to the nature of the OutSystems platform, user actions could be also called methods - thus being this mapping the bridge between object-oriented testing and OutSystems testing. A module, on the other hand, could also be considered as a class, although the similarities could not be so straightforward.
+Binder states that although only one method at a time is tested, methods cannot exist apart from a class. Again, due the nature of the OutSystems platform, this is not entirely applicable. There is no need to have an implicit cooperation between methods, "living" each one on their own. This doesn't mean, though, that user actions cannot rely on other user actions - which is very common, indeed.
+\subsubsection{Control Flow Graph and Coverage}
+The Control Flow Graph is a representation of predicates - single or multiple conditions which evaluate to true or false - using graph notation. Each of the nodes represent a block of instructions while the edges represent a predicate. Computing predicates allow the developer to identify which values trigger the given branches and, thus, allowing to achieve acceptable levels coverage.
+\begin{figure}[h!]
+    \centering
+	\includegraphics[width=0.9\columnwidth]{cfg}
+    \caption {Control flow graph representation}
+    \label{fig:cfg}
+\end{figure}
+Coverage models include \textbf{Statement Coverage}, \textbf{Branch Coverage}, Multiple-condition Coverage Object Coded Coverage, Basis-Path Coverage and Data Flow Coverage. For the scope of this work, it is important to understand Statement and Branch coverage models.
+
+The statement coverage model, or C1, is calculated based on the number of statements of a given method that have been executed at least once. The branch coverage model, or C2, uses the number of branches that are executed, even if some statements in those branches are not executed.
+According to Binder, in large systems achievable coverage lies between 80 and 85\%, with the remaining 15 to 20\% being due to unreachable code.
+
+\subsection{Method scope test design patterns}
+There are several patterns to design method scope tests although only the two most relevant will be presented. Each one applies to a specific purpose implemented by the method under test (MUT).
+\subsubsection{Category-Partition}
+The category-partition test pattern might be used on any given method or function in any given scope, being appropriate for any method that implements one or more independent functions. The intent of this pattern is to design a test suite based on input/output analysis.
+This pattern assumes that faults are related to value combination of message parameters and instance variables. If faults are only visible through certain sequences, these pattern might not reveal them.
+
+The strategy involves identifying all functions of the MUT followed by the identification of input and output parameters for each function, along with categories. Then, partition each category into choices considering existing constraints on said choices. Finally, the test cases are generated by enumerating all the possible combinations and the expected results are developed using an appropriate oracle.
+Although being a fairly straightforward technique, the identification of categories and choices is a subjective process and the size of the generated test suite may become quite large.
+
+\subsubsection{Combinational Function Test}
+The combinational function test pattern is more appropriate for methods that implement complex algorithms, business rules or other case-based logic or, in other words, it aims to design test suites for behaviors based on state or message parameters.
+
+The fault model of this pattern could be when incorrect values are assigned to decision variables, incorrect or missing operators/variables in predicates, incorrect structure in a predicate, incorrect or missing default case or default action and many others.
+
+The strategy for this pattern is to create a decision table that lists which different input combinations will result in different actions, along with the expected response of the MUT. Each of the entries in the input combinations should only be boolean-type expressions and each combination of input variables and respective action is called a variant. In the case that decision variables are not boolean, additional tests should be made to exercise the boundaries.
+
+This pattern highlights incorrect response actions to test messages and often reveals design errors and omissions. Additionally, faults resulting from the order of message to external dependencies or corruption of object variables hidden by the MUT interface may not be shown.
+
+\subsection{Mocking}
+When the MUT has any external dependencies, it is useful to use mocking so the developer can only focus on the code being tested and don't get concerned about the behavior of said dependencies. Mocking works by replacing dependencies with closely controlled objects that simulate the expected behavior. There are three types - or levels - of mocking:
+\begin{itemize}
+    \item \textbf{Fakes} allow the developer to replace the actual code of the external dependency by implementing the same interface but without further interaction with other objects. The results from said implementation are hardcoded and the need for new fakes increase as the test suite increase. Big test suites mean a fake structure that is hard to understand and maintain.
+    \item \textbf{Stubs} is an evolution from fakes. While using fakes require implementing actual code for the external dependency, using stubs with a mocking framework allow the developer to create a stub with minimal amount of effort.
+    \item \textbf{Mocks} is the most evolved mocking type. It is very similar to stubs - providing the same advantages - but allow the developer to set expectations on a given method - developer can define the output value for each method call, for instance. While stubs are "blind" substitutes, mocks allow the developer to verify its usage.
+\end{itemize}
+
+In order to use these types of mocking, a developer uses a mocking framework. Mocking frameworks are not substitutes of unit testing frameworks but rather complement them by isolating dependencies.
+In terms of offerings, there are several free and commercial mocking frameworks. In terms of the free offering, JustMock Lite, NSubstitute, Moq and Rhino Mocks are the most publicized. Microsoft Fakes, included in Visual Studio is also a good option. In terms of commercial solutions, JustMock and Typemock seem to be the most complete offerings.
+
+\subsection{Symbolic Execution}
+The symbolic execution testing method is a technique where a program is analyzed to determine which set of inputs trigger a given part of a program\cite{King:1976:SEP:360248.360252}. It is not a recent technique, with articles proposing it in 1975\cite{Boyer:1975:SFS:390016.808445} but has always faced dificulties related to constraint satisfiability. The computed paths are created using an interpreter that, by using symbolic values instead of actual values, obtains a set of expressions for the program input variables that will \textit{hit} possible outcomes of conditional branches. There are some known limitations to this technique, though. For large programs, it might not be possible to execute all feasible paths\cite{Anand2008} and, while \textit{interpreting} a given application, it might not be possible to control environment interactions, causing consistency problems - KLEE\cite{Cadar:2008:KUA:1855741.1855756} and Otter\cite{otter} are some tools used to mitigate issues related to environment interactions.
+Other challenges are memory handle, path explosion and constraint solving\cite{SurveySymExec-CSUR18}.
+
+\subsubsection{Constraint Solving}
+In order to understand exactly which values of input data are required so a given branch can be execised, it is often used a constraint solver on the computed paths. A constraint solver is a decision procedure for logical formulas expressing problems. Two common solvers are the boolean satisfiability problem (SAT) and the Satisfiability Modulo Theory (SMT) solvers. The SMT solver is an extension to the SAT in which instead of being based on boolean logic, it evolved into first-order logic\cite{6713475020110901}.
+An approach for automatically generate test data using constraing solving techniques was proposed by Gotlieb, et al.\cite{Gotlieb:1998:ATD:271775.271790} One example of a solver implemented for the .NET platform is the Z3 Theorem Prover.
+
+\subsection{Solutions for the OutSystems platform}
+As stated previously, there are no solutions for the OutSystems platform for which no further developments are required in order to test user actions.
+
+\subsubsection{Unit Testing Framework}
+The Unit Testing Framework is a framework for unit test definition created by Andrew Burgess and published, for the first time, in June 3rd, 2013. The last update was published by Paulo Ramos in April 5th, 2016 and it has not been updated for the last installments of the Platform (v10 and v11).
+This framework provides a set of functions that the developer can use when designing the tests. As suggested, this framework does not provide automated test case generation since it targets a "design-time" level instead of a "run-time" level. This can mimick what is done using a Test Driven Development\cite{Astels:2003:TDD:864016} approach in other programming languages like Java or \texttt{C\#}. The main difference is that it requires the signature of the function to be created beforehand, in order to be imported into the test case.
+The set of functions offered by this framework is a standard one, offering functions for the typical \textit{assert equals} and \textit{assert fail/pass} as well as others like \textit{assert is true/false}, \textit{assert pass} and, finally, \textit{assert contains text}.
+
+\subsubsection{BDD Framework}
+The BDD Framework is a testing framework that provides a set of tools for easily creating Behavior Driven Development tests for an OutSystems application. The Behavior Driven Development is the base concept of the application, following the principles of the \textit{Given}, \textit{When} and \textit{Then}. This framework allows the user to define the scenarios and then each step of the scenario. These steps require a specific development for each one, an activity that can be time consuming and might require additional development depending on the pre or post-conditions that are required.
+As such, depending on the type of the tests that the developer wants to do, designing and implementing the test might require additional developments to assure required data is present and the test can proceed.
+Similarly to the Unit Testing Framework, the BDD Framework also provides common assert functions, namely: \textit{assert}, \textit{assert fail}, \textit{assert true/false}, \textit{assert value}. Unfortunately, it has some limitations that difficult it's adoption: designing the tests can consume a lot of Application Objects; it doesn't support scheduling of tests and it doesn't provide an overall report based on test execution. It also doesn't support automated test generation.
+An analysis on the recent information and blog posts by OutSystems on the software testing subject leads to conclude that testing using Behavior Driven Development is the suggested way for OutSystems applications.
+
+\subsubsection{Test Framework}
+The Test Framework is an open source application that offers simple management and automated execution of OutSystems Unit and API tests. With seamless integration with BDD Framework and Unit Testing Framework, it allows automated regression tests setup and execution. This component has been developed by Indigo and supports the following set of features:
+\begin{itemize}
+	\item \textbf{Manage Test Suites, Cases and Steps} Define test scenarios, for both Unit and API tests, and it executes them manually or daily at a given schedule.
+	\item \textbf{Test execution classification} Classify test executions as Broken or Defect, to help teams focus on fixing tests, or actually fixing the wrong functionality identified by the test.
+	\item \textbf{Introspection and execution of BDD and UTF Tests} Automatically imports and runs BDD or Unit Test Framework tests periodically, validating results on every run.
+	\item \textbf{Quality overview} Monitor the evolution of defined test suites, gaining a clear understanding of whether tests are not designed for maintainability, or if the applications are increasingly having more quality and less regressions.
+\end{itemize}
+The documentation for this Test Framework is provided by OutSystems and it doesn't seem to have huge adoption - only 131 downloads since the release, in September 27, 2017. Also, the Application Object consumption is of 83 AO's, which is a significant amount for the OutSystems Platform - although AO's are usually unlimited in development environments.
+On a usage-basis, this tool requires BDD Framework to manage and execute the tests, seeming like an extension to the said framework. This tool, like the others, doesn't support automated test generation.
+
+\subsubsection{Automator}
+The Test Automator is a browser (based on Selenium) and unit (based on web services) regression testing tool for the OutSystems Platform. It was built for OutSystems Platform version 7. The last update for this component was released in November 16th, 2015 by Paulo Garrudo and, in total, it counts 686 downloads since its initial release.
+This tool allows the usage of Selenium test scripts as well as some OutSystems logic though it's most focused for UI testing instead of logical testing. This logical testing capabilities are well limited - it requires to be exposed on a web service and it has to follow a certain structure. Eligible logic methods should have no input parameters and should return only one output parameter, parameter that needs to be a single boolean or text.
+
+\section{Solution}
+Due to the nature of the OutSystems Modeling Language (OML) file along with restrictions of intellectual property, OutSystems has provided a representation of the OML file contents in XML format.
+
+This XML file contains the same information as the OML file, in which properties of each object are defined as attributes while associated objects (like input and output variables, local variables, nodes and so on) are referenced as child nodes. This representation allows the system to deserialize the XML file into a usable object and correctly parse the control flow graph for each user action.
+
+The flow begins with the user uploading a valid XML file in which the system, namely the Parsing Engine, will read and produce an output with all relevant user actions along with the identified branches. Once imported, the user is redirected to the test suite list, specifically generated for the uploaded module.
+
+\subsection{Parsing Engine}
+The Parsing Engine is responsible by parsing the XML and calculate the branches. Since elements are linked on the XML file through connectors and those connectors point to a unique key, an auxiliary dictionary is used. Once all the deserialized nodes are converted into custom types, the linkage between elements is created and the branches are computed. In order to compute the branches a recursive function is used, with this function "exploding the paths" when the found element is either an \textit{If} condition, a \textit{Switch} condition or a \textit{ForEach} loop.
+
+\subsection{User Interface}
+Once the user picks a test suite from the list, a screen listing basic information about the given action along with last execution is presented. Additionally, the user will see the identified branches. For each of those identified branches, the user will have the option to specify the contents for all of the input variables along with the expected results for the output variables. The inclusion of a solver has not been made during this development iteration.
+
+The user will then have the option to execute an \textit{ad hoc} test in which the results will be promptly presented on the screen. In the case everything works as expected, all fields will appear as green. If anything misses, the field will appear with an red warning and the received value is displayed.
+
+Along with the possibility of setting up input and output variables, the user also has the possibility of mocking computed values. Computed values are values which affect a branch condition but are not part of the input parameter list. This allows the repeatability of tests, at least to some extent.
+
+There are three types of objects that it is important to mock: session variables, site properties (global variables) and external calls (database or other actions). The actual mocking is made using the Dynamic Execution Engine, which is the engine responsible to dynamically invoke actions using reflection.
+
+Regarding the mocking functionality, there are some limitations. While for session variables the values can be easily mocked, for site properties the scenario is a bit different. Although the mocking can be achieved, this is not a "pure" mocking \textit{per se} - the actual value of the parameter is changed and concurrency issues can appear. Finally, for external calls (database and other actions), due to the nature of the generated code (static methods), it's not possible to mock the output of those methods. There are some commercial tools that support that but they all require the code to be running on the local machine and not on a server - being the latter the encountered scenario.
+
+\subsection{Dynamic Execution Engine}
+The Dynamic Execution Engine is the piece responsible to execute a given test case using the parameters defined. The process for executing the test case relies on four steps: obtaining the action to be executed, mocking applicable values, setting up input/output variables and, finally, invoke and parse the output.
+In order to retrieve the action through C\#, the invocation of the Dynamic Execution Engine receives the name of the module along with the name of the action, which is then invoked using reflection.
+
+\subsubsection{Mocking}
+Due to the limitations presented before, only session variables and site properties will be mocked.
+For a \textit{Session Variable}, the value of the \textit{App} property present in the \textit{ss(eSpaceName).Global} type contains the \textit{AppInfo} variable. This \textit{AppInfo} variable contains a property named \textit{OsContext} which, in turn, contains a \textit{Session} dictionary. By adding a value to this dictionary - which key follows the \textit{eSpace.Attribute} naming convention -, it is possible to mock the value for the running session. Since this action is invoked with a different \textit{OsContext} object every time, there are no concurrency issues.
+
+For \textit{Site Properties}, a similar approach is taken but instead of obtaining an \textit{AppInfo} object, the code retrieves the \textit{SitePropertiesInfo} object. This object is a dictionary and, contrary to the \textit{AppInfo} object, it only contains values for the given module. As such, a direct assignment can be done through \textit{dictionary[attribute] = value}. In terms of concurrency, there are some limitations here. While for \textit{Session Variables} the \textit{OsContext} object is created before each invocation, for \textit{Site Properties} it isn't mocking \textit{per se}, as stated before, since the changes to the value of the \textit{Site Property} are persisted between execution calls.
+
+\subsubsection{Method invocation and output parsing}
+By using a temporary list to store the method's signature (input and output parameters, since the latter are passed by reference), an array of objects is created with representations of the input parameters and \textit{null} objects on the output parameters. Due to output parameters being passed by reference, the \textit{InvokeMethod} method of the action's type (in C\#) also requires a \textit{ParameterModified} array. This array only contains boolean values, with the value \textit{true} used for referenced parameters.
+
+Once the invocation is successful, the temporary list with the method's signature is used again and the output parameters are extracted from the object array, being mapped to the output structure of the Dynamic Execution Engine method and, finally, with the results being displayed to the user on the user interface.
+\section{Evaluation}
+The framework was evaluated during a period of two days, using a predefined set of functions. The lack of "real world" examples was due to intellectual property rights over existing projects along with the unnecessary overhead to create a working application. Summing up, the aim was to focus on concrete scenarios which would be identified as usual bugs - and that would be created by a junior developer.
+The procedure for testing was the following: 
 \begin{enumerate}
-\item Add alternative text to all figures
-\item Mark table headings
-\item Add tags to the PDF
-\item Verify the default language
-\item Set the tab order to ``Use Document Structure''
+	\item Developers were given a working eSpace with 4 existing bugs (unknown to developers) and were requested to test the actions presented on that eSpace. The total time taken would be recorded and found errors were reported.
+	\item Developers were then given an XML version from the same working eSpace and were requested to import it into the OutTest framework and build the required tests. The total time taken would be recorded and found errors were reported.
+	\item Once these two tasks were completed, a modified version of the working eSpace was given to the developers and they were asked to find the manually created bugs. Time taken would be recorded and compared between both solutions. This modified version had two additional bugs.
+	\item Once found, developers were asked to fix them.
+	\item Finally, developers were invited to share their thoughts about their performance using each method and overall comments on the built framework.
 \end{enumerate}
-For more information and links to instructions and resources, please
-see: \url{http://chi2016.acm.org/accessibility}.  The
-\texttt{{\textbackslash}hyperref} package allows you to create well tagged PDF files,
-please see the preamble of this template for an example.
 
-\section{Page Numbering, Headers and Footers}
-Your final submission should not contain footer or header information
-at the top or bottom of each page. Specifically, your final submission
-should not include page numbers. Initial submissions may include page
-numbers, but these must be removed for camera-ready. Page numbers will
-be added to the PDF when the proceedings are assembled.
+\subsection{Results}
+\begin{itemize}
+	\item Regarding test suite creation time, developers took on average 80\% less time creating the test suite using the OutTest framework instead of the manual procedure (1.5 hours instead of 7.5).
+	\item Regarding original bug discovery using manual methods, only 75\% of the bugs were discovered versus the 100\% discovery using OutTest.
+	\item Regarding bug discovery using modified versions, only two developers were able to correctly identify the two new bugs using manual methods while all the developers were able to find them using OutTest.
+	\item In terms of timings for bug discovery in the modified versions, an average of 30 minutes using OutTest was required versus an average of 80 minutes when doing manually. 
+	\item As for bug fixing time, the average time taken was one hour for both bugs.
+\end{itemize}
 
-\section{Producing and Testing PDF Files}
+\subsection{Financial analysis}
+Considering an average cost of EUR15/Hour/Developer and considering a team of five junior developers, the usage of the OutTest framework yielded an average saving of EUR90 per developer just for test case design. Additionally, an approximate EUR15 was saved when developers had to re-test.
 
-We recommend that you produce a PDF version of your submission well
-before the final deadline.  Your PDF file must be ACM DL
-Compliant. The requirements for an ACM Compliant PDF are available at:
-{\url{http://www.sheridanprinting.com/typedept/ACM-distilling-settings.htm}}.
+Considering the team a whole (five people), using manual methods would have cost approximately EUR887 to the company, without having pristine actions - 7.5h for the test creation, an estimated 2 hours to fix the original four bugs, 1.33h for the bug discovery in the modified versions and an additional hour for fixing those.
+If the usage of the OutTest framework was considered, the total cost would have been EUR375, a saving of almost 58\%!
 
-Test your PDF file by viewing or printing it with the same software we
-will use when we receive it, Adobe Acrobat Reader Version 10. This is
-widely available at no cost. Note that most
-reviewers will use a North American/European version of Acrobat
-reader, so please check your PDF accordingly.
+The costs presented only take into account direct costs, although the results show an increase in productivity and an overall increase in the quality.
 
-When creating your PDF from Word, ensure that you generate a tagged
-PDF from improved accessibility. This can be done by using the Adobe
-PDF add-in, also called PDFMaker. Select Acrobat | Preferences from
-the ribbon and ensure that ``Enable Accessibility and Reflow with
-tagged Adobe PDF'' is selected. You can then generate a tagged PDF by
-selecting ``Create PDF'' from the Acrobat ribbon.
+\subsection{Overall comments}
+At the end of the tests, both developers and managers were requested to give their opinion on the framework. 
+
+The \textbf{developers} stated that they felt an increase in their productivity and that their work had become "less boring". Additionally, they felt that the usage of a framework like this would improve their code quality and the overall relationship with peers, managers and clients - since less bugs would be found.
+
+As of \textbf{managers}, they stated that the financial gain was considerable along with the increase in the quality of the deliverables, which would lead into better a relationship with the customer. Unfortunately, the lack of possibility to simulate outside calls (database and/or other actions) would restrict the overall applicability of this framework in "real-world" projects.
 
 \section{Conclusion}
+The increased complexity in software along with the current talent shortage led to companies having to hire professionals outside of the IT market, leading to junior developers with less skills. Having less skills and, more important, less relevant quality assurance skills, the quality of deliverables is at skate, leading to delayed projects, financial losses and public image degradation.
 
-It is important that you write for the SIGCHI audience. Please read
-previous years' proceedings to understand the writing style and
-conventions that successful authors have used. It is particularly
-important that you state clearly what you have done, not merely what
-you plan to do, and explain how your work is different from previously
-published work, i.e., the unique contribution that your work makes to
-the field. Please consider what the reader will learn from your
-submission, and how they will find your work useful. If you write with
-these questions in mind, your work is more likely to be successful,
-both in being accepted into the conference, and in influencing the
-work of our field.
+In order to overcome the repetitiveness and "boredom" of the testing tasks, automated software testing can be implemented in companies, although it requires initial investment and certain skills. The process of automated testing can be done using various techniques like Fuzzing, Random testing, static analysis, symbolic execution and so on.
 
-\section{Acknowledgments}
+The objective of this work was to create a testing framework for the OutSystems platform so user actions - usually linked to business logic - could be tested without further developments. 
 
-Sample text: We thank all the volunteers, and all publications support
-and staff, who wrote and provided helpful comments on previous
-versions of this document. Authors 1, 2, and 3 gratefully acknowledge
-the grant from NSF (\#1234--2012--ABC). \textit{This whole paragraph is
-  just an example.}
+Despite this work not being supported by OutSystems and the existing limitations, the achieved results seem to show that this was a success and the developments should continue, ideally with OutSystems support.
 
-% Balancing columns in a ref list is a bit of a pain because you
-% either use a hack like flushend or balance, or manually insert
-% a column break.  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=balance
-% multicols doesn't work because we're already in two-column mode,
-% and flushend isn't awesome, so I choose balance.  See this
-% for more info: http://cs.brown.edu/system/software/latex/doc/balance.pdf
-%
-% Note that in a perfect world balance wants to be in the first
-% column of the last page.
-%
-% If balance doesn't work for you, you can remove that and
-% hard-code a column break into the bbl file right before you
-% submit:
-%
-% http://stackoverflow.com/questions/2149854/how-to-manually-equalize-columns-
-% in-an-ieee-paper-if-using-bibtex
-%
-% Or, just remove \balance and give up on balancing the last page.
-%
-\balance{}
+\subsection{Current limitations and future work}
+As stated previously, there are some limitations to this work that influence the overall functionality and applicability. The first limitation is the need to have an XML version of the module (\textit{eSpace}) so it can be imported. As of now, this feature is not available to a regular OutSystems developer or customer, with the file being only accessible through OutSystems employees. A possible workaround is to have the XML file to be automatically generated by the Platform Server and also automatically imported into OutTest. Regarding the limitation of function invocation due to the \textit{Application Domains}, it was suggested that a possible solution would be to automatically reference every action a "super" module and automatically compile it - without user intervention. This could, eventually, bypass the need of the web service implementation. Regarding the mocking limitation for Site Properties, the suggestion is that the value is obtained through a function, and that function also receives an \textit{OsContext} object. Regarding external calls limitation - and explaining the need of the \textit{OsContext} in the Site Property function -, it would be helpful if the generated code would include a functionality which would check the said \textit{OsContext.Session} dictionary for a given value - \textit{TestMode}, for instance - and if the value was true, it would then return the object present in another entry of the dictionary - \textit{TestResult}, for instance. This way, mocking would be possible.
 
-\section{References Format}
-Your references should be published materials accessible to the
-public. Internal technical reports may be cited only if they are
-easily accessible and may be obtained by any reader for a nominal
-fee. Proprietary information may not be cited. Private communications
-should be acknowledged in the main text, not referenced (e.g.,
-[Golovchinsky, personal communication]). References must be the same
-font size as other body text. References should be in alphabetical
-order by last name of first author. Use a numbered list of references
-at the end of the article, ordered alphabetically by last name of
-first author, and referenced by numbers in brackets. For papers from
-conference proceedings, include the title of the paper and the name of
-the conference. Do not include the location of the conference or the
-exact date; do include the page numbers if available. 
-
-References should be in ACM citation format:
-\url{http://www.acm.org/publications/submissions/latex_style}.  This
-includes citations to Internet
-resources~\cite{CHINOSAUR:venue,cavender:writing,psy:gangnam}
-according to ACM format, although it is often appropriate to include
-URLs directly in the text, as above. Example reference formatting for
-individual journal articles~\cite{ethics}, articles in conference
-proceedings~\cite{Klemmer:2002:WSC:503376.503378},
-books~\cite{Schwartz:1995:GBF}, theses~\cite{sutherland:sketchpad},
-book chapters~\cite{winner:politics}, an entire journal
-issue~\cite{kaye:puc},
-websites~\cite{acm_categories,cavender:writing},
-tweets~\cite{CHINOSAUR:venue}, patents~\cite{heilig:sensorama}, 
-games~\cite{supermetroid:snes}, and
-online videos~\cite{psy:gangnam} is given here.  See the examples of
-citations at the end of this document and in the accompanying
-\texttt{BibTeX} document. This formatting is a edited version of the
-format automatically generated by the ACM Digital Library
-(\url{http://dl.acm.org}) as ``ACM Ref.'' DOI and/or URL links are
-optional but encouraged as are full first names. Note that the
-Hyperlink style used throughout this document uses blue links;
-however, URLs in the references section may optionally appear in
-black.
-
+Regarding future work, the inclusion of a solver could be proven a huge leap forward along with a redesigned and more effective UI. In terms of the extensions, refactoring of the code to properly implement design patterns along with performance optimization is considered. As an informal feedback, all the senior developers that were asked about which feature would be more important for them - either mocking of external actions or a solver for the conditions - have selected the mocking feature.
 % BALANCE COLUMNS
 \balance{}
 
